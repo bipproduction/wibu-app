@@ -2,11 +2,11 @@ import { spawn } from 'child_process'
 
 export async function GET() {
     const child = spawn('/bin/sh', ["-c", "pm2 jlist"])
-    let log: string[] = []
+    let log: any[] = []
 
     child.stdout.on('data', (data) => {
         try {
-            log = JSON.parse(data.toString())
+            log = JSON.parse(data.toString().trim())
         } catch (error) {
             console.log(error)
         }
@@ -16,7 +16,7 @@ export async function GET() {
         console.log(data.toString())
     })
 
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise(resolve => setTimeout(resolve, 2000))
 
     return Response.json({
         success: true,
