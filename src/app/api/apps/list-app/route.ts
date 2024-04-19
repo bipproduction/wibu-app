@@ -6,6 +6,7 @@ export async function GET() {
 
     child.stdout.on('data', (data) => {
         try {
+            console.log(data.toString())
             log = JSON.parse(data.toString().trim())
         } catch (error) {
             console.log(error)
