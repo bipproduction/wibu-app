@@ -5,7 +5,11 @@ export async function GET() {
     let log: string[] = []
 
     child.stdout.on('data', (data) => {
-        log = JSON.parse(data.toString())
+        try {
+            log = JSON.parse(data.toString())
+        } catch (error) {
+            console.log(error)
+        }
     })
 
     child.stderr.on('data', (data) => {
