@@ -2,12 +2,11 @@ import { spawn } from 'child_process'
 
 export async function GET() {
     const child = spawn('/bin/sh', ["-c", "pm2 jlist"])
-    let log: any[] = []
+    let log = ""
 
     child.stdout.on('data', (data) => {
         try {
-            console.log(data.toString())
-            log = JSON.parse(data.toString().trim())
+            log = data.toString()
         } catch (error) {
             console.log(error)
         }
