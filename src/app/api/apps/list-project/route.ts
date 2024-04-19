@@ -7,6 +7,10 @@ export async function GET() {
         log = `${data}`.split('\n').filter(x => x !== '')
     })
 
+    child.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`)
+    })
+
     await new Promise(resolve => setTimeout(resolve, 2000))
     return Response.json({
         success: true,
