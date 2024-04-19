@@ -1,0 +1,287 @@
+[
+  {
+    "id": "io_3003",
+    "name": "io",
+    "port": 3003,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5003,
+    "script": {
+      "start": "pm2 start \"node index.js start --port 3003\" --name io_3003",
+      "restart": "pm2 restart io_3003"
+    },
+    "createdAt": "2024-03-23T14:30:05.817Z",
+    "updatedAt": "2024-03-23T15:07:32.605Z",
+    "isActive": true
+  },
+  {
+    "id": "raven-stone2_3000",
+    "name": "raven-stone2",
+    "port": 3000,
+    "type": "nextjs",
+    "branch": "build",
+    "studio_port": 5000,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3000\" --name raven-stone2_3000",
+      "restart": "pm2 restart raven-stone2_3000"
+    },
+    "createdAt": "2024-02-29T09:22:43.409Z",
+    "updatedAt": "2024-03-23T15:07:32.664Z",
+    "isActive": true
+  },
+  {
+    "id": "makuro-server_3015",
+    "name": "makuro-server",
+    "port": 3015,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5015,
+    "script": {
+      "start": "pm2 start \"node . start -p 3015\" --name makuro-server_3015",
+      "restart": "pm2 restart makuro-server_3015"
+    },
+    "createdAt": "2024-02-29T09:22:43.435Z",
+    "updatedAt": "2024-03-23T15:07:32.719Z",
+    "isActive": true
+  },
+  {
+    "id": "tele-server_3016",
+    "name": "tele-server",
+    "port": 3016,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5016,
+    "script": {
+      "start": "pm2 start \"node . start -p 3016\" --name tele-server_3016",
+      "restart": "pm2 restart tele-server_3015"
+    },
+    "createdAt": "2024-02-29T09:22:43.436Z",
+    "updatedAt": "2024-03-23T15:07:32.723Z",
+    "isActive": true
+  },
+  {
+    "id": "content-generator_3017",
+    "name": "content-generator",
+    "port": 3017,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5017,
+    "script": {
+      "start": "pm2 start \"node . start -p 3017\" --name content-generator_3017",
+      "restart": "pm2 restart content-generator_3017"
+    },
+    "createdAt": "2024-02-29T09:22:43.437Z",
+    "updatedAt": "2024-03-23T15:07:32.727Z",
+    "isActive": true
+  },
+  {
+    "id": "makuro-config_3019",
+    "name": "makuro-config",
+    "port": 3019,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5019,
+    "script": {
+      "start": "pm2 start \"node . start -p 3019\" --name makuro-config_3019",
+      "restart": "pm2 restart makuro-config_3019"
+    },
+    "createdAt": "2024-02-29T09:22:43.438Z",
+    "updatedAt": "2024-03-23T15:07:32.731Z",
+    "isActive": true
+  },
+  {
+    "id": "wa-server_3001",
+    "name": "wa-server",
+    "port": 3001,
+    "type": "node",
+    "branch": "build",
+    "studio_port": 5001,
+    "script": {
+      "start": "pm2 start \"node index.js --port 3001\" --name wa-server_3001",
+      "restart": "pm2 restart wa-server_3001"
+    },
+    "createdAt": "2024-02-29T09:22:43.412Z",
+    "updatedAt": "2024-03-23T15:07:32.667Z",
+    "isActive": true
+  },
+  {
+    "id": "webhook_3002",
+    "name": "webhook",
+    "port": 3002,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5002,
+    "script": {
+      "start": "pm2 start \"node index.js --port 3002\" --name webhook_3002",
+      "restart": "pm2 restart webhook_3002"
+    },
+    "createdAt": "2024-02-29T09:22:43.415Z",
+    "updatedAt": "2024-03-23T15:07:32.672Z",
+    "isActive": true
+  },
+  {
+    "id": "wibudev_3004",
+    "name": "wibudev",
+    "port": 3004,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5004,
+    "script": {
+      "start": "pm2 start \"node .\" --name wibudev_3004",
+      "restart": "pm2 restart wibudev_3004"
+    },
+    "createdAt": "2024-02-29T09:22:43.416Z",
+    "updatedAt": "2024-03-23T15:07:32.676Z",
+    "isActive": true
+  },
+  {
+    "id": "test-raven-stone2_3005",
+    "name": "test-raven-stone2",
+    "port": 3005,
+    "type": "nextjs",
+    "branch": "test",
+    "studio_port": 5005,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3005\" --name test-ravescriptn-stone2_3005",
+      "restart": "pm2 restart test-raven-stone2_3005"
+    },
+    "createdAt": "2024-02-29T09:22:43.418Z",
+    "updatedAt": "2024-03-23T15:07:32.682Z",
+    "isActive": true
+  },
+  {
+    "id": "grp_3006",
+    "name": "grp",
+    "port": 3006,
+    "type": "nextjs",
+    "branch": "build",
+    "studio_port": 5006,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3006\" --name grp_3006",
+      "restart": "pm2 restart grp_3006"
+    },
+    "createdAt": "2024-02-29T09:22:43.420Z",
+    "updatedAt": "2024-03-23T15:07:32.685Z",
+    "isActive": true
+  },
+  {
+    "id": "test-hipmi_3007",
+    "name": "test-hipmi",
+    "port": 3007,
+    "type": "nextjs",
+    "branch": "test",
+    "studio_port": 5007,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3007\" --name test-hipmi__3007",
+      "restart": "pm2 restart test-hipmi_3007"
+    },
+    "createdAt": "2024-02-29T09:22:43.421Z",
+    "updatedAt": "2024-03-23T15:07:32.689Z",
+    "isActive": true
+  },
+  {
+    "id": "test-ninox_3008",
+    "name": "test-ninox",
+    "port": 3008,
+    "type": "nextjs",
+    "branch": "test",
+    "studio_port": 5008,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3008\" --name test-ninox_3008",
+      "restart": "pm2 restart test-ninox_3008"
+    },
+    "createdAt": "2024-02-29T09:22:43.424Z",
+    "updatedAt": "2024-03-23T15:07:32.693Z",
+    "isActive": true
+  },
+  {
+    "id": "surya-ai_3009",
+    "name": "surya-ai",
+    "port": 3009,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5009,
+    "script": {
+      "start": "pm2 start \"node .\" --name surya-ai_3009",
+      "restart": "pm2 restart surya-ai_3009"
+    },
+    "createdAt": "2024-02-29T09:22:43.426Z",
+    "updatedAt": "2024-03-23T15:07:32.697Z",
+    "isActive": true
+  },
+  {
+    "id": "chat_3010",
+    "name": "chat",
+    "port": 3010,
+    "type": "nextjs",
+    "branch": "chat",
+    "studio_port": 5010,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3010\" --name chat_3010",
+      "restart": "pm2 restart chat_3010"
+    },
+    "createdAt": "2024-02-29T09:22:43.429Z",
+    "updatedAt": "2024-03-23T15:07:32.700Z",
+    "isActive": true
+  },
+  {
+    "id": "ninox-fox_3011",
+    "name": "ninox-fox",
+    "port": 3011,
+    "type": "nextjs",
+    "branch": "build",
+    "studio_port": 5011,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3011\" --name ninox-fox_3011",
+      "restart": "pm2 restart ninox-fox_3011"
+    },
+    "createdAt": "2024-02-29T09:22:43.431Z",
+    "updatedAt": "2024-03-23T15:07:32.705Z",
+    "isActive": true
+  },
+  {
+    "id": "noc_3012",
+    "name": "noc",
+    "port": 3012,
+    "type": "nextjs",
+    "branch": "build",
+    "studio_port": 5012,
+    "script": {
+      "start": "pm2 start \"yarn start --port 3012\" --name noc_3012",
+      "restart": "pm2 restart noc"
+    },
+    "createdAt": "2024-02-29T09:22:43.432Z",
+    "updatedAt": "2024-03-23T15:07:32.709Z",
+    "isActive": true
+  },
+  {
+    "id": "stream_3013",
+    "name": "stream",
+    "port": 3013,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5013,
+    "script": {
+      "start": "pm2 start \"node .\" --name stream_3013",
+      "restart": "pm2 restart stream_3013"
+    },
+    "createdAt": "2024-02-29T09:22:43.433Z",
+    "updatedAt": "2024-03-23T15:07:32.712Z",
+    "isActive": true
+  },
+  {
+    "id": "makuro-ai_3014",
+    "name": "makuro-ai",
+    "port": 3014,
+    "type": "node",
+    "branch": "main",
+    "studio_port": 5014,
+    "script": {
+      "start": "pm2 start \"node . start -p 3014\" --name makuro-ai_3014",
+      "restart": "pm2 restart makuro-ai_3014"
+    },
+    "createdAt": "2024-02-29T09:22:43.434Z",
+    "updatedAt": "2024-03-23T15:07:32.716Z",
+    "isActive": true
+  }
+]
