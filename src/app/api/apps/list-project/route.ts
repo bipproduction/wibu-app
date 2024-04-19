@@ -8,7 +8,7 @@ export async function GET() {
     })
 
     child.stderr.on('data', (data) => {
-        console.log(`stderr: ${data}`)
+        console.log(data.toString())
     })
 
     await new Promise(resolve => setTimeout(resolve, 2000))
