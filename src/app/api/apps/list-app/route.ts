@@ -16,7 +16,7 @@ export async function GET() {
         console.log(data.toString())
     })
 
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 1000))
 
     return Response.json({
         success: true,
