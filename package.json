@@ -40,7 +40,6 @@
     "server-only": "^0.0.1",
     "simpledotcss": "^2.3.0",
     "socket.io": "^4.7.4",
-    "string-width": "^7.1.0",
     "sweetalert2": "^11.10.8",
     "swr": "^2.2.5",
     "yargs": "^17.7.2"
