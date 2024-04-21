@@ -1,4 +1,4 @@
-import { ButtonLogout } from '@/ui/button_logout'
+import { ButtonLogout } from '@/ui/ButtonLogout'
 import { Login } from '@/ui/login'
 import { Anchor, Button, Flex, Stack, Title } from '@mantine/core'
 import { cookies } from 'next/headers'

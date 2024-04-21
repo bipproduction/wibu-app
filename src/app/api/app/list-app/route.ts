@@ -6,7 +6,7 @@ export async function GET() {
 
     child.stdout.on('data', (data) => {
         try {
-            log += data.toString()
+            log += JSON.parse(data.toString())
         } catch (error) {
             console.log(error)
         }
@@ -18,9 +18,6 @@ export async function GET() {
 
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    return Response.json({
-        success: true,
-        data: log,
-    })
+    return Response.json(JSON.parse(log))
 
 }

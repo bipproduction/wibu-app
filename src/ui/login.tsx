@@ -1,10 +1,10 @@
 'use client'
 import { Button, Center, Container, Stack, TextInput, Title } from "@mantine/core";
 import { useState } from "react";
-import { RegisterView } from "./register";
 import Swal from "sweetalert2";
 import _ from "lodash";
 import toast from "react-simple-toasts";
+import { RegisterView } from "./register";
 
 export function Login() {
 
