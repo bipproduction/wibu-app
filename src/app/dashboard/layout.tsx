@@ -1,6 +1,6 @@
 import PACKAGE from '@/models/PACKAGE'
 import { ButtonLogout } from '@/ui/ButtonLogout'
-import { Login } from '@/ui/Login'
+import { LoginUi } from '@/ui/LoginUi'
 import appASetting from '@/util/app_setting'
 import { Anchor, Button, Flex, Stack, Text, Title } from '@mantine/core'
 import { cookies } from 'next/headers'
@@ -11,7 +11,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     const token = cookies().get('token') || null
     const pkg: PACKAGE = await fetch(`${appASetting.url}/api/package`).then(res => res.json())
 
-    if (!token) return <Login />
+    if (!token) return <LoginUi />
     return <Stack>
         <Flex justify={'space-between'} p={"md"}>
             <Stack>
@@ -34,5 +34,6 @@ export default async function Layout({ children }: { children: React.ReactNode }
             </Flex>
         </Flex>
         {children}
+
     </Stack>
 }

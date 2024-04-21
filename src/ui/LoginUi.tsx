@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import _ from "lodash";
 import { RegisterView } from "./Register";
 
-export function Login() {
+export function LoginUi() {
 
     const [isLogin, setIslogin] = useState(true)
     return <Container>
