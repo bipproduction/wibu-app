@@ -3,7 +3,7 @@ export default function build() {
     // Create a new ReadableStream
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', ['-c', 'git pull origin main && yarn build && pm2 restart wibu-app_3025']);
+            const child = spawn('/bin/sh', ['-c', 'ls']);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
