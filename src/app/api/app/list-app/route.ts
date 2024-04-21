@@ -6,6 +6,7 @@ export async function GET() {
 
     child.stdout.on('data', (data) => {
         log += data.toString()
+        console.log(log)
     })
 
     child.stderr.on('data', (data) => {
