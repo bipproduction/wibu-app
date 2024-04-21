@@ -24,6 +24,7 @@ require('colors')
     })()
 
 async function push() {
+    await updatdeVersion()
     const child = spawn('/bin/bash', ['-c', 'git add -A && git commit -m "update" && git push origin main'])
 
     child.stdout.on('data', (data) => {
@@ -34,8 +35,6 @@ async function push() {
         console.log(data.toString().yellow)
     })
 
-    updatdeVersion()
-    // console.log(require('./../package.json'))
     console.log("SUCCESS".green)
 }
 
