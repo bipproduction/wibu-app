@@ -1,8 +1,6 @@
 'use client'
 
 import { Card, Flex, Paper, Stack, Text, Title } from "@mantine/core"
-import { useShallowEffect } from "@mantine/hooks"
-import { useState } from "react"
 
 export default function AppsUi({ listApp }: { listApp: any[] }) {
 

@@ -1,9 +1,10 @@
+import AppsUi from "@/ui/AppsUi";
 import Project from "@/ui/Project";
 import Server from "@/ui/Server";
-import AppsUi from "@/ui/apps";
+
 import appASetting from "@/util/app_setting";
 import { Stack, Title } from "@mantine/core";
-import { headers } from 'next/headers'
+
 
 
 export default async function Page({ params }: any) {
