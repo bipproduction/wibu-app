@@ -15,5 +15,4 @@ if (platform === "darwin") {
     appASetting.url = "https://wibu-app.wibudev.com"
 }
 
-
 export default appASetting
