@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 
+
 export async function GET() {
     const child = spawn('/bin/sh', ["-c", "pm2 jlist"])
     let log = ""
@@ -12,7 +13,6 @@ export async function GET() {
     child.stderr.on('data', (data) => {
         // console.log(data.toString())
     })
-    
 
     await new Promise(resolve => setTimeout(resolve, 2000))
 
@@ -23,5 +23,5 @@ export async function GET() {
         return Response.json([])
     }
 
-
 }
+
