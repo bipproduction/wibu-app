@@ -1,3 +1,4 @@
+'use server'
 import appASetting from '@/util/app_setting';
 import { spawn } from 'child_process'
 
