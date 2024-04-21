@@ -4,7 +4,7 @@ import appASetting from '@/util/app_setting';
 export async function GET() {
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
 
-    const stream =  build()
+    // const stream =  build()
 
     // Return the response with the stream
     return new Response("stream", {
