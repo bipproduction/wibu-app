@@ -10,6 +10,11 @@ export async function GET() {
                 // Push data into the stream
                 controller.enqueue(data);
             });
+
+            child.stderr.on('data', (data) => {
+                // Push data into the stream
+                controller.enqueue(data);
+            })
             // Handle the end of the child process
             child.on('close', () => {
                 // Close the stream
