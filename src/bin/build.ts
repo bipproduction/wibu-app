@@ -1,6 +1,5 @@
-'use server'
 import { spawn } from 'child_process'
-export default async function build() {
+export default function build() {
     // Create a new ReadableStream
     const stream = new ReadableStream({
         start(controller) {
