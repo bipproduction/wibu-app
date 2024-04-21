@@ -36,7 +36,7 @@ async function push() {
     })
 
     child.on('close', (code) => {
-        console.log(`child process exited with code ${code}`)
+        console.log(`SUCCESS`.green)
     })
 }
 
