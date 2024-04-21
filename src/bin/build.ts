@@ -7,12 +7,12 @@ export default function build() {
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
-                controller.enqueue(data);
+                controller.enqueue(data.toString());
             });
 
             child.stderr.on('data', (data) => {
                 // Push data into the stream
-                controller.enqueue(data);
+                controller.enqueue(data.toString());
             })
             // Handle the end of the child process
             child.on('close', () => {
