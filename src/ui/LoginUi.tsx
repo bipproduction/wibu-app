@@ -3,7 +3,7 @@ import { Button, Center, Container, Stack, TextInput, Title } from "@mantine/cor
 import { useState } from "react";
 import Swal from "sweetalert2";
 import _ from "lodash";
-import { RegisterView } from "./Register";
+import { RegisterUi } from "./RegisterUi";
 
 export function LoginUi() {
 
@@ -15,7 +15,7 @@ export function LoginUi() {
                     <LoginView />
                     <Button onClick={() => setIslogin(false)} variant="subtle">REGISTER</Button>
                 </Stack> : <Stack>
-                    <RegisterView />
+                    <RegisterUi />
                     <Button onClick={() => setIslogin(true)} variant="subtle">LOGIN</Button>
                 </Stack>}
 

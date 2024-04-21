@@ -5,7 +5,7 @@ import _ from "lodash"
 import Swal from "sweetalert2";
 import toast from "react-simple-toasts";
 
-export function RegisterView() {
+export function RegisterUi() {
     const [form, setForm] = useState({
         "name": '',
         "email": '',
