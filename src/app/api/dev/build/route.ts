@@ -1,10 +1,11 @@
 import build from '@/bin/build';
 import appASetting from '@/util/app_setting';
 
-export async function GET() {
+export async function GET(req: Request, { searchParams }: { searchParams: { cmd: string } }) {
+    const cmd = searchParams.cmd
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
 
-    const stream = build({ cmd: null })
+    const stream = build({ cmd: cmd })
 
     // Return the response with the stream
     return new Response(stream, {
