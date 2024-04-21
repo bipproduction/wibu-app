@@ -5,22 +5,19 @@ export async function GET() {
     let log = ""
 
     child.stdout.on('data', (data) => {
-        try {
-            log += JSON.parse(data.toString())
-        } catch (error) {
-            console.log(error)
-        }
+        log += data.toString()
     })
 
     child.stderr.on('data', (data) => {
         console.log(data.toString())
     })
 
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise(resolve => setTimeout(resolve, 2000))
 
     try {
         return Response.json(JSON.parse(log))
     } catch (error) {
+        console.log(error)
         return Response.json([])
     }
 
