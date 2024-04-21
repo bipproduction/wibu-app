@@ -21,5 +21,6 @@ export async function GET() {
         // console.log(error)
         return Response.json([])
     }
+    
 
 }
