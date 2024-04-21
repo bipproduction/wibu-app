@@ -24,7 +24,12 @@ export async function GET() {
     });
 
     // Return the response with the stream
-    return new Response(stream);
+    return new Response(stream, {
+        headers: {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+        },
+    });
 }
 
 async function build() {
