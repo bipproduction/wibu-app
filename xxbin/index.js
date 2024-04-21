@@ -2,8 +2,8 @@ const _ = require('lodash');
 const argv = process.argv.splice(2);
 const { spawn } = require('child_process');
 const fs = require('fs');
-const pkg = require('../package.json');
 const semver = require('semver')
+const path = require('path')
 require('colors')
 
 
@@ -31,10 +31,23 @@ async function push() {
     })
 
     child.stderr.on('data', (data) => {
-        console.log(data.toString().red)
+        console.log(data.toString().yellow)
     })
+
+    updatdeVersion()
+    // console.log(require('./../package.json'))
+    console.log("SUCCESS".green)
+}
+
+async function updatdeVersion() {
+    const pkg = require(path.join(__dirname, './../package.json'))
 
     // update version package
     const version = semver.inc(pkg.version, 'patch')
-    console.log(`version: ${version}`)
+    const newPkg = _.cloneDeep(pkg)
+    newPkg.version = version
+
+    await fs.promises.writeFile(path.join(__dirname, './../package.json'), JSON.stringify(newPkg, null, 2))
+
+    console.log(`${pkg.version} =>  ${newPkg.version}`)
 }
