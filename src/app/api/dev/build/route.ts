@@ -1,6 +1,6 @@
-'use server'
 import appASetting from '@/util/app_setting';
 import { spawn } from 'child_process'
+import 'server-only'
 
 export async function GET() {
 
