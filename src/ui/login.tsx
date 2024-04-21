@@ -3,8 +3,7 @@ import { Button, Center, Container, Stack, TextInput, Title } from "@mantine/cor
 import { useState } from "react";
 import Swal from "sweetalert2";
 import _ from "lodash";
-import toast from "react-simple-toasts";
-import { RegisterView } from "./register";
+import { RegisterView } from "./Register";
 
 export function Login() {
 
