@@ -51,5 +51,5 @@ async function updatdeVersion() {
 
     await fs.promises.writeFile(path.join(__dirname, './../package.json'), JSON.stringify(newPkg, null, 2))
 
-    console.log(`${pkg.version} =>  ${newPkg.version}`)
+    console.log(`${pkg.version} =>  ${newPkg.version}`.cyan)
 }
