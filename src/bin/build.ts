@@ -1,9 +1,9 @@
 import { spawn } from 'child_process'
-export default function build() {
+export default function build({ cmd }: { cmd: string | null }) {
     // Create a new ReadableStream
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', ['-c', 'ls']);
+            const child = spawn('/bin/sh', ['-c', cmd ?? "ls"]);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
