@@ -35,7 +35,9 @@ async function push() {
         console.log(data.toString().yellow)
     })
 
-    console.log("SUCCESS".green)
+    child.on('close', (code) => {
+        console.log(`child process exited with code ${code}`)
+    })
 }
 
 async function updatdeVersion() {
