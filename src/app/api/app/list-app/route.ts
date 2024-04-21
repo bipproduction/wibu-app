@@ -12,6 +12,7 @@ export async function GET() {
     child.stderr.on('data', (data) => {
         // console.log(data.toString())
     })
+    
 
     await new Promise(resolve => setTimeout(resolve, 2000))
 
@@ -21,6 +22,6 @@ export async function GET() {
         // console.log(error)
         return Response.json([])
     }
-    
+
 
 }
