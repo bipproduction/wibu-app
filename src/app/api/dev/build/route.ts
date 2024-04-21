@@ -6,6 +6,7 @@ export async function GET(req: Request, { searchParams }: { searchParams: { cmd:
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
 
     const stream = build({ cmd: "ls" })
+    
 
     // Return the response with the stream
     return new Response(searchParams.toString(), {
