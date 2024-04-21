@@ -6,6 +6,7 @@ import { Anchor, Button, Flex, Stack, Text, Title } from '@mantine/core'
 import { cookies } from 'next/headers'
 import { MdHome } from 'react-icons/md'
 
+
 export default async function Layout({ children }: { children: React.ReactNode }) {
     const token = cookies().get('token') || null
     const pkg: PACKAGE = await fetch(`${appASetting.url}/api/package`).then(res => res.json())
