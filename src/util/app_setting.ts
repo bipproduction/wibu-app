@@ -3,7 +3,8 @@ const platform = os.platform()
 const appASetting = {
     server_path: "",
     url: "",
-    platform
+    platform,
+    isLocal: platform === "darwin",
 }
 
 if (platform === "darwin") {

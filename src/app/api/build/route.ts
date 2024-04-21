@@ -1,10 +1,14 @@
+import appASetting from '@/util/app_setting';
 import { spawn } from 'child_process'
 
 export async function GET() {
+
+    if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
+
     // Create a new ReadableStream
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', ['-c', 'git add -A && git commit -m "update" && git push origin main']);
+            const child = spawn('/bin/sh', ['-c', 'git pull origin main && yarn build && pm2 restart wibu-app_3025']);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
