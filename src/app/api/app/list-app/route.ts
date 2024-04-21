@@ -18,6 +18,10 @@ export async function GET() {
 
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    return Response.json(JSON.parse(log))
+    try {
+        return Response.json(JSON.parse(log))
+    } catch (error) {
+        return Response.json([])
+    }
 
 }
