@@ -3,7 +3,12 @@ import appASetting from '@/util/app_setting';
 import { spawn } from 'child_process'
 import { URL } from 'url';
 
+var inProgress = false
+
 export async function GET(req: Request) {
+    if (inProgress) return new Response("please wait, app is In Used by other !", { status: 500 })
+    inProgress = true
+
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
     const cmd = new URL(req.url).searchParams.get('cmd')
     if (cmd) return new Response(cmd, { status: 200 })
