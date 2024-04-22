@@ -31,7 +31,6 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
             tmpLog += decoder.decode(value) + "\n"
             setlogText(tmpLog)
-            // setlogText(decoder.decode(value))
         }
 
         setLoadingPush(false)
@@ -39,12 +38,57 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     }
 
     async function onPull() {
+        let tmpLog = "... \n"
         setLoadingPull(true)
+        const res = await fetch('/api/dev/pull', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'text/event-stream',
+                'Cache-Control': 'no-cache',
+            },
+        })
+
+        const reader = res.body!.getReader()
+
+        const decoder = new TextDecoder()
+
+        while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            tmpLog += decoder.decode(value) + "\n"
+            setlogText(tmpLog)
+        }
+
+        setLoadingPull(false)
 
     }
 
     async function onBuild() {
+        let tmpLog = "... \n"
         setLoadingBuild(true)
+
+        const res = await fetch('/api/dev/build', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'text/event-stream',
+                'Cache-Control': 'no-cache',
+            },
+        })
+
+        const reader = res.body!.getReader()
+
+        const decoder = new TextDecoder()
+
+        while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            tmpLog += decoder.decode(value) + "\n"
+            setlogText(tmpLog)
+        }
+
+        setLoadingBuild(false)
 
     }
 
