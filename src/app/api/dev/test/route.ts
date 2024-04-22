@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 
+
 export async function GET() {
 
     const stream = new ReadableStream({
@@ -24,6 +25,7 @@ export async function GET() {
         }
     })
 
+    
     return new Response(stream, {
         headers: {
             'Content-Type': 'text/event-stream',
