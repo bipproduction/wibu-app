@@ -1,6 +1,6 @@
 'use client'
 import appASetting from "@/util/app_setting";
-import { Box, Button, Flex, Grid, NavLink, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import { Box, Button, Code, Flex, Grid, NavLink, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 import { useState } from "react";
 import { MdBuild, MdDownload, MdGite, MdPushPin } from "react-icons/md";
 
@@ -56,7 +56,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             </Grid.Col>
             <Grid.Col p={"md"} c={"white"} span={"auto"}>
                 <Stack bg={"black"} p={"md"}>
-                    <Text>ini adalah terminalnya</Text>
+                    <Code>{logText}</Code>
                 </Stack>
             </Grid.Col>
         </Grid>
