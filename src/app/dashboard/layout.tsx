@@ -27,6 +27,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 <Flex gap={`md`}>
                     <Anchor href={'/dashboard'}>Home</Anchor>
                     <Anchor href={'/dashboard/apps'}>Apps</Anchor>
+                    <Anchor href={'/dashboard/dev'}>Dev</Anchor>
                 </Flex>
             </Stack>
             <Flex>
