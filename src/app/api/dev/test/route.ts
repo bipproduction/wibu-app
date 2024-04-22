@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     if (cmd) return new Response(cmd, { status: 200 })
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', ['-c', 'bin/build.sh'])
+            const child = spawn('/bin/sh', ['bin/build.sh'])
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
