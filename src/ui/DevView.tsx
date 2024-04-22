@@ -103,7 +103,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
             </Grid.Col>
             <Grid.Col p={"md"} c={"white"} span={"auto"}>
-                <Stack bg={"black"} p={"md"}>
+                <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }}>
                     <pre>
                         <Text>{logText}</Text>
                     </pre>
