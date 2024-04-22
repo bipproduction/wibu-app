@@ -102,10 +102,9 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                 </NavLink>
 
             </Grid.Col>
-            <Grid.Col p={"md"} c={"white"} span={9}>
-                {loadingBuild || loadingpull || loadingPush && <LoadingOverlay visible={loadingBuild} pos={"absolute"} />}
+            <Grid.Col p={"md"} span={9}>
+                <LoadingOverlay visible={loadingPush || loadingpull || loadingBuild} />
                 <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }}>
-
                     <pre>
                         <Text>{logText}</Text>
                     </pre>
