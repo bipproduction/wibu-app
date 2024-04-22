@@ -68,25 +68,25 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
         let tmpLog = ""
         setLoadingBuild(true)
         await new Promise(resolve => setTimeout(resolve, 1000))
-        const res = await fetch('/api/dev/build', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'text/event-stream',
-                'Cache-Control': 'no-cache',
-            },
-        })
+        // const res = await fetch('/api/dev/build', {
+        //     method: "GET",
+        //     headers: {
+        //         'Content-Type': 'text/event-stream',
+        //         'Cache-Control': 'no-cache',
+        //     },
+        // })
 
-        const reader = res.body!.getReader()
+        // const reader = res.body!.getReader()
 
-        const decoder = new TextDecoder()
+        // const decoder = new TextDecoder()
 
-        while (true) {
-            const { done, value } = await reader.read()
-            if (done) break
+        // while (true) {
+        //     const { done, value } = await reader.read()
+        //     if (done) break
 
-            tmpLog += decoder.decode(value) + "\n"
-            setlogText(tmpLog)
-        }
+        //     tmpLog += decoder.decode(value) + "\n"
+        //     setlogText(tmpLog)
+        // }
 
         setLoadingBuild(false)
 
