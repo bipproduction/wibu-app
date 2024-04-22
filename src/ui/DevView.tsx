@@ -65,7 +65,6 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
         setLoadingPull(false)
 
     }
-
     async function onBuild() {
         setlogText("buil ...")
         let tmpLog = ""
