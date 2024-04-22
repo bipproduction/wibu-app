@@ -107,7 +107,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                     <pre>
                         <Text>{logText}</Text>
                     </pre>
-                    <LoadingOverlay visible={loadingPush || loadingpull || loadingBuild} />
+                    <LoadingOverlay visible={loadingPush || loadingpull || loadingBuild} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
                 </Stack>
             </Grid.Col>
         </Grid>
