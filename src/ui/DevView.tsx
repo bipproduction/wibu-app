@@ -67,7 +67,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     async function onBuild() {
         let tmpLog = "... \n"
         setLoadingBuild(true)
-
+        await new Promise(resolve => setTimeout(resolve, 1000))
         const res = await fetch('/api/dev/build', {
             method: "GET",
             headers: {
