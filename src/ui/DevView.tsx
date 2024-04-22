@@ -1,6 +1,6 @@
 'use client'
 import appASetting from "@/util/app_setting";
-import { Box, Button, Code, Flex, Grid, Loader, LoadingOverlay, NavLink, SimpleGrid, Stack, Text, Textarea, Title } from "@mantine/core";
+import { Box, Button, Center, Code, Flex, Grid, Loader, LoadingOverlay, NavLink, SimpleGrid, Stack, Text, Textarea, Title } from "@mantine/core";
 import { useState } from "react";
 import { MdBuild, MdDownload, MdGite, MdPushPin } from "react-icons/md";
 
@@ -102,8 +102,10 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                 </NavLink>
 
             </Grid.Col>
-            <Grid.Col p={"md"} span={9}>
-                <LoadingOverlay visible={loadingPush || loadingpull || loadingBuild} />
+            <Grid.Col p={"md"} span={9} pos={"relative"}>
+                {loadingBuild || loadingpull || loadingPush && <Center pos={"absolute"} left={0} right={0} top={0} bottom={0}  >
+                    <Loader />
+                </Center>}
                 <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }}>
                     <pre>
                         <Text>{logText}</Text>
