@@ -29,7 +29,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             const { done, value } = await reader.read()
             if (done) break
 
-            tmpLog += decoder.decode(value) + "\n"
+            tmpLog += decoder.decode(value) + "<br>"
             setlogText(tmpLog)
             // setlogText(decoder.decode(value))
         }
