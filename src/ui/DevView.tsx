@@ -1,6 +1,6 @@
 'use client'
 import appASetting from "@/util/app_setting";
-import { Box, Button, Code, Flex, Grid, NavLink, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import { Box, Button, Code, Flex, Grid, NavLink, SimpleGrid, Stack, Text, Textarea, Title } from "@mantine/core";
 import { useState } from "react";
 import { MdBuild, MdDownload, MdGite, MdPushPin } from "react-icons/md";
 
@@ -29,7 +29,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             const { done, value } = await reader.read()
             if (done) break
 
-            tmpLog += decoder.decode(value) + "<br>"
+            tmpLog += decoder.decode(value) + "\n"
             setlogText(tmpLog)
             // setlogText(decoder.decode(value))
         }
@@ -60,7 +60,9 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             </Grid.Col>
             <Grid.Col p={"md"} c={"white"} span={"auto"}>
                 <Stack bg={"black"} p={"md"}>
-                    <Code bg={"black"} c={"white"}>{logText}</Code>
+                    <pre>
+                        <Textarea value={logText} minRows={10} maxRows={20} readOnly />
+                    </pre>
                 </Stack>
             </Grid.Col>
         </Grid>
