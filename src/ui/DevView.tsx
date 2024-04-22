@@ -11,7 +11,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     const [logText, setlogText] = useState("")
 
     async function onPush() {
-        let tmpLog = "... \n"
+        let tmpLog = ""
         setLoadingPush(true)
         const res = await fetch('/api/dev/push', {
             method: "GET",
@@ -38,7 +38,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     }
 
     async function onPull() {
-        let tmpLog = "... \n"
+        let tmpLog = ""
         setLoadingPull(true)
         const res = await fetch('/api/dev/pull', {
             method: "GET",
@@ -65,7 +65,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     }
 
     async function onBuild() {
-        let tmpLog = "... \n"
+        let tmpLog = ""
         setLoadingBuild(true)
         await new Promise(resolve => setTimeout(resolve, 1000))
         const res = await fetch('/api/dev/build', {
