@@ -106,7 +106,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                 {loadingBuild || loadingpull || loadingPush && <Center pos={"absolute"} left={0} right={0} top={0} bottom={0}  >
                     <Loader />
                 </Center>}
-                <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }} c={"white"}>
+                <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
                     <pre>
                         <Text>{logText}</Text>
                     </pre>
