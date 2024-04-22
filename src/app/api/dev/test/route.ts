@@ -3,8 +3,6 @@ import appASetting from '@/util/app_setting';
 import { spawn } from 'child_process'
 import { URL } from 'url';
 
-
-
 export async function GET(req: Request) {
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
     const cmd = new URL(req.url).searchParams.get('cmd')
