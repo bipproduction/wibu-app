@@ -56,7 +56,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             </Grid.Col>
             <Grid.Col p={"md"} c={"white"} span={"auto"}>
                 <Stack bg={"black"} p={"md"}>
-                    <Code>{logText}</Code>
+                    <Code bg={"black"} c={"white"}>{logText}</Code>
                 </Stack>
             </Grid.Col>
         </Grid>
