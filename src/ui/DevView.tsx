@@ -11,6 +11,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     const [logText, setlogText] = useState("")
 
     async function onPush() {
+        let tmpLog= ""
         setLoadingPush(true)
         const res = await fetch('/api/dev/push', {
             method: "GET",
@@ -27,7 +28,10 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
         while (true) {
             const { done, value } = await reader.read()
             if (done) break
-            setlogText(decoder.decode(value))
+
+            tmpLog += decoder.decode(value)
+            setlogText(tmpLog)
+            // setlogText(decoder.decode(value))
         }
 
         setLoadingPush(false)
