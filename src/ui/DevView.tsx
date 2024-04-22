@@ -109,8 +109,12 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                     <Loader />
                 </Center>}
                 <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
-                    <pre>
-                        <Text>{logText}</Text>
+                    <pre >
+                        <Text style={{
+                            wordWrap: "break-word",
+                            whiteSpace: "pre-wrap",
+                            textWrap: "wrap",
+                        }}>{logText}</Text>
                     </pre>
                 </Stack>
             </Grid.Col>
