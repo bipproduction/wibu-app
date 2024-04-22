@@ -1,3 +1,3 @@
-git add -A
-git commit -m "build"
-git push origin build
+git pull origin build
+yarn build
+pm2 restart wibu-app_3025
