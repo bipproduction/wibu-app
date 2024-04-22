@@ -9,7 +9,7 @@ export async function GET(req: Request) {
     const stream = build({ cmd: cmd})
 
     // Return the response with the stream
-    return new Response(JSON.stringify(query_cmd), {
+    return new Response(stream, {
         headers: {
             'Content-Type': 'text/event-stream',
             'Cache-Control': 'no-cache',
