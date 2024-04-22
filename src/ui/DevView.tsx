@@ -11,7 +11,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
     const [logText, setlogText] = useState("")
 
     async function onPush() {
-        let tmpLog= ""
+        let tmpLog = ""
         setLoadingPush(true)
         const res = await fetch('/api/dev/push', {
             method: "GET",
@@ -61,7 +61,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             <Grid.Col p={"md"} c={"white"} span={"auto"}>
                 <Stack bg={"black"} p={"md"}>
                     <pre>
-                        <Textarea value={logText} minRows={10} maxRows={20} readOnly />
+                        <Text>{logText}</Text>
                     </pre>
                 </Stack>
             </Grid.Col>
