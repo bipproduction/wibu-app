@@ -66,7 +66,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
     }
     async function onBuild() {
-        setlogText("buil ...")
+        setlogText("build ...")
         let tmpLog = ""
         setLoadingBuild(true)
         await new Promise(resolve => setTimeout(resolve, 1000))
