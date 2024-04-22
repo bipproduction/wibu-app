@@ -6,7 +6,7 @@ export async function GET() {
     if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', ['bin/build.sh'])
+            const child = spawn('/bin/sh', ['ls'])
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream
