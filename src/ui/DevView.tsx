@@ -94,7 +94,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
     return <Stack>
         <Grid>
-            <Grid.Col w={300} span={"content"}>
+            <Grid.Col span={3}>
                 <NavLink leftSection={<MdGite />} label={"GIT"} opened={true}  >
                     {isLocal && <NavLink onClick={onPush} leftSection={<MdPushPin />} label={"git push"} disabled={loadingPush} />}
                     {!isLocal && <NavLink onClick={onPull} leftSection={<MdDownload />} label={"git pull"} disabled={loadingpull} />}
@@ -102,7 +102,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                 </NavLink>
 
             </Grid.Col>
-            <Grid.Col p={"md"} c={"white"} span={"auto"}>
+            <Grid.Col p={"md"} c={"white"} span={9}>
                 <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }}>
                     <pre>
                         <Text>{logText}</Text>
