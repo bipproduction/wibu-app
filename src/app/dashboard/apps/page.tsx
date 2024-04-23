@@ -6,8 +6,6 @@ import appASetting from "@/util/app_setting";
 import { Stack, Title } from "@mantine/core";
 
 export default async function Page({ params }: any) {
-    // console.log(appASetting.platform)
-
     try {
         const listApp = await fetch(`${appASetting.url}/api/app/list-app`).then(res => res.json())
         const listServer = await fetch(`${appASetting.url}/api/app/list-server`).then(res => res.json())
