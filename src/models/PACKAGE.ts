@@ -1,4 +1,4 @@
-export interface PACKAGE {
+export interface MODEL_PACKAGE {
     name: string
     version: string
     private: boolean
@@ -8,4 +8,4 @@ export interface PACKAGE {
     devDependencies: {}
 }
 
-export default PACKAGE
+export default MODEL_PACKAGE
