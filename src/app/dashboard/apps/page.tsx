@@ -1,5 +1,5 @@
 
-import AppsUi from "@/ui/AppsUi";
+import AppsView from "@/ui/AppsView";
 import Project from "@/ui/Project";
 import Server from "@/ui/Server";
 import appASetting from "@/util/app_setting";
@@ -13,7 +13,7 @@ export default async function Page({ params }: any) {
         const listProject = await fetch(`${appASetting.url}/api/app/list-project`).then(res => res.json())
 
         return <Stack>
-            <AppsUi listApp={listApp}  />
+            <AppsView listApp={listApp}  />
             <Project listProject={listProject} />
             <Server listServer={listServer} />
         </Stack>

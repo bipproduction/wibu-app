@@ -4,7 +4,7 @@ import { MODEL_PM2 } from "@/models/PM2"
 import { ActionIcon, Card, Flex, Paper, Stack, Table, Text, Title } from "@mantine/core"
 import { MdRestore, MdStop } from 'react-icons/md'
 
-export default function AppsUi({ listApp }: { listApp: MODEL_PM2[] }) {
+export default function AppsView({ listApp }: { listApp: MODEL_PM2[] }) {
 
     return <Stack gap={0} p={"md"}>
         <Title>Apps</Title>
