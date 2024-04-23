@@ -1,7 +1,8 @@
 'use client'
 import moment from 'moment'
 import { MODEL_PM2 } from "@/models/PM2"
-import { Card, Flex, Paper, Stack, Table, Text, Title } from "@mantine/core"
+import { ActionIcon, Card, Flex, Paper, Stack, Table, Text, Title } from "@mantine/core"
+import { MdRestore, MdStop } from 'react-icons/md'
 
 export default function AppsUi({ listApp }: { listApp: MODEL_PM2[] }) {
 
@@ -17,6 +18,7 @@ export default function AppsUi({ listApp }: { listApp: MODEL_PM2[] }) {
                     <Table.Th>cpu</Table.Th>
                     <Table.Th>mem</Table.Th>
                     <Table.Th>time</Table.Th>
+                    <Table.Th>action</Table.Th>
                 </Table.Tr>
             </Table.Thead>
             <Table.Tbody>
@@ -30,6 +32,16 @@ export default function AppsUi({ listApp }: { listApp: MODEL_PM2[] }) {
                             <Table.Td>{app.monit.cpu}</Table.Td>
                             <Table.Td>{app.monit.memory}</Table.Td>
                             <Table.Td>{moment(app.pm2_env.created_at).format('YYYY-MM-DD HH:mm:ss')}</Table.Td>
+                            <Table.Td>
+                                <Flex gap={"md"}>
+                                    <ActionIcon>
+                                        <MdRestore />
+                                    </ActionIcon>
+                                    <ActionIcon>
+                                        <MdStop />
+                                    </ActionIcon>
+                                </Flex>
+                            </Table.Td>
                         </Table.Tr>
                     })
                 }
