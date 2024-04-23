@@ -2,9 +2,9 @@
 import AppsUi from "@/ui/AppsUi";
 import Project from "@/ui/Project";
 import Server from "@/ui/Server";
-
 import appASetting from "@/util/app_setting";
 import { Stack, Title } from "@mantine/core";
+
 
 export default async function Page({ params }: any) {
     try {
