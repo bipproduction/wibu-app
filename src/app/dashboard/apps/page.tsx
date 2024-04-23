@@ -15,7 +15,7 @@ export default async function Page({ params }: any) {
         const listProject = await fetch(`${appASetting.url}/api/app/list-project`).then(res => res.json())
 
         return <Stack>
-            <TestUi />
+            {/* <TestUi /> */}
             <AppsUi listApp={listApp}  />
             <Project listProject={listProject} />
             <Server listServer={listServer} />
