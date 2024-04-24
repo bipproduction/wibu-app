@@ -111,10 +111,14 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
             </Grid.Col>
             <Grid.Col p={"md"} span={9} pos={"relative"}>
-                {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={0}   >
-                    <Loader />
-                </Center>}
-                <Stack bg={"black"} p={"md"} h={"100vh"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
+                <Stack
+                    bg={"black"}
+                    p={"md"}
+                    h={"100vh"}
+                    w={"100%"}
+                    pos={"relative"}
+                    style={{ overflow: "auto" }}
+                    c={"white"} mah={"100vh"}>
                     <Code
                         w={"100%"}
                         bg={"black"}
@@ -123,6 +127,9 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                             {logText}
                         </pre>
                     </Code>
+                    {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={10}   >
+                        <Loader />
+                    </Center>}
                 </Stack>
             </Grid.Col>
         </Grid>
