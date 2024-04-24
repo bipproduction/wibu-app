@@ -1,5 +1,5 @@
-yarn dev &
-pid=$!
-echo $pid
-sleep 5
-kill $pid
+if([ $# -eq 0 ]); then
+    echo "Usage: $0 <name>"
+    exit 1
+fi
+echo "apa kabar $1"

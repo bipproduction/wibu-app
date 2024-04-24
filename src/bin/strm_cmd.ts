@@ -1,8 +1,14 @@
 import { spawn } from 'child_process'
-export function strm_cmd({ path }: { path: string }) {
+
+/**
+ * ### strm_cmd
+ * - path: megarah ke file sh contoh: /bin/pm2_status.sh
+ * - return: stream
+ */
+export function strm_cmd({ path, cmd }: { path?: string | null, cmd?: string | null }) {
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', [path]);
+            const child = spawn('/bin/sh', cmd ? ["-c", cmd] : [path!]);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream

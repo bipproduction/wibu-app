@@ -31,12 +31,12 @@ export default function AppsView() {
                 <Table.Tbody>
                     {
                         listApp.map((app, index) => {
-                            return <Table.Tr key={index}>
+                            return <Table.Tr key={index} bg={app.pm2_env.status === "online" ? "green" : "red"}>
                                 <Table.Td>{index + 1}</Table.Td>
                                 <Table.Td>{app.name}</Table.Td>
                                 <Table.Td>{app.pid}</Table.Td>
-                                <Table.Td>{app.pm2_env.status}</Table.Td>
-                                <Table.Td bg={app.pm2_env.status === "online" ? "green" : "red"}>{app.monit.cpu}</Table.Td>
+                                <Table.Td >{app.pm2_env.status}</Table.Td>
+                                <Table.Td >{app.monit.cpu}</Table.Td>
                                 <Table.Td>{app.monit.memory}</Table.Td>
                                 <Table.Td>{moment(app.pm2_env.created_at).format('YYYY-MM-DD HH:mm:ss')}</Table.Td>
                                 <Table.Td>
