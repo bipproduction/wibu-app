@@ -8,7 +8,7 @@ export async function GET(req: Request) {
     if (onProgress) return new Response("please wait, app is In Used by other !", { status: 500 })
     onProgress = true
     const cmd = new URL(req.url).searchParams.get('cmd')
-    // if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
+    if (appASetting.isLocal) return new Response("Not Available on Local", { status: 500 })
 
     if (cmd) return new Response(cmd, { status: 200 })
 

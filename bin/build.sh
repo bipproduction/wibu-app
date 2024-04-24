@@ -1,6 +1,5 @@
 git pull origin build
 yarn install
-timeout 5s yarn dev --port 3333
 npx prisma db push
 yarn build
 pm2 restart wibu-app_3025
