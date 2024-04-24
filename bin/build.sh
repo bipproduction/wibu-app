@@ -1,7 +1,7 @@
-git pull origin build
+# git pull origin build
 yarn install
 npx prisma db push
-yarn dev &
+yarn dev --port 3333 &
 pid=$!
 echo $pid
 sleep 10
