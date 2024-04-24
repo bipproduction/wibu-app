@@ -1,6 +1,6 @@
 {
   "name": "wibu-app",
-  "version": "0.1.44",
+  "version": "0.1.45",
   "private": true,
   "prisma": {
     "seed": "node prisma/seed/index.js"
@@ -55,6 +55,6 @@
     "postcss": "^8.4.38",
     "postcss-preset-mantine": "^1.14.4",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5"
+    "typescript": "^5.4.5"
   }
 }

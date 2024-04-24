@@ -4,28 +4,11 @@ import { revalidatePath } from "next/cache";
 import { spawn } from 'child_process'
 
 export async function GET(req: Request) {
-    try {
-        await new Promise<void>((resolve, reject) => {
-            const child = spawn('/bin/sh', ['-c', 'yarn start --port 3335']);
-            // Handle stdout data from the child process
-            child.stdout.on('data', (data) => {
-                console.log(data.toString())
-            })
+    const app = new URL(req.url).searchParams.get('app')
+    if (app) return new Response(app)
 
-            child.stderr.on('data', (data) => {
-                console.log(data.toString())
-            })
-
-            setTimeout(() => {
-                resolve()
-                child.kill('SIGHUP')
-            }, 5000)
-
-        })
-
-        return new Response("OK")
-    } catch (error) {
-        return new Response(error?.toString())
-    }
+    const cmd = `pm2 restart ${app} --update-env`
+    const stream = strm_cmd({ cmd })
+    return new Response(stream, { headers: header_strm })
 
 }
