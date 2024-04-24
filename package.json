@@ -1,6 +1,6 @@
 {
   "name": "wibu-app",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "private": true,
   "prisma": {
     "seed": "node prisma/seed/index.js"
