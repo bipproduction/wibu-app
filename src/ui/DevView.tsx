@@ -6,15 +6,18 @@ import { useState } from "react";
 import { MdBuild, MdDownload, MdGite, MdNote, MdPushPin } from "react-icons/md";
 
 export default function DevView({ isLocal }: { isLocal: boolean }) {
-    const [loadingPush, setLoadingPush] = useState(false)
-    const [loadingpull, setLoadingPull] = useState(false)
-    const [loadingBuild, setLoadingBuild] = useState(false)
+    // const [loadingPush, setLoadingPush] = useState(false)
+    // const [loadingpull, setLoadingPull] = useState(false)
+    // const [loadingBuild, setLoadingBuild] = useState(false)
     const [logText, setlogText] = useState("")
+
+    const [loading, setLoading] = useState(false)
 
     async function onPush() {
         setlogText("push ...")
         let tmpLog = ""
-        setLoadingPush(true)
+        // setLoadingPush(true)
+        setLoading(true)
         const res = await fetch('/api/dev/push', {
             method: "GET",
             headers: {
@@ -35,14 +38,16 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             setlogText(tmpLog)
         }
 
-        setLoadingPush(false)
+        // setLoadingPush(false)
+        setLoading(false)
 
     }
 
     async function onPull() {
         setlogText("pull ...")
         let tmpLog = ""
-        setLoadingPull(true)
+        // setLoadingPull(true)
+        setLoading(true)
         const res = await fetch('/api/dev/pull', {
             method: "GET",
             headers: {
@@ -63,13 +68,15 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             setlogText(tmpLog)
         }
 
-        setLoadingPull(false)
+        // setLoadingPull(false)
+        setLoading(false)
 
     }
     async function onBuild() {
         setlogText("build ...")
         let tmpLog = ""
-        setLoadingBuild(true)
+        // setLoadingBuild(true)
+        setLoading(true)
         await new Promise(resolve => setTimeout(resolve, 1000))
         const res = await fetch('/api/dev/build', {
             method: "GET",
@@ -91,22 +98,25 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
             setlogText(tmpLog)
         }
 
-        setLoadingBuild(false)
+        // setLoadingBuild(false)
+        setLoading(false)
 
     }
 
     const onPm2Status = async () => {
-        strmFetch({ path: "/api/dev/pm2/status", setlogText })
+        setLoading(true)
+        await strmFetch({ path: "/api/dev/pm2/status", setlogText })
+        setLoading(false)
     }
 
     return <Stack>
         <Grid>
             <Grid.Col span={3}>
                 <NavLink leftSection={<MdGite />} label={"GIT"} opened={true}  >
-                    {isLocal && <NavLink onClick={onPush} leftSection={<MdPushPin />} label={"git push"} disabled={loadingPush} />}
-                    {!isLocal && <NavLink onClick={onPull} leftSection={<MdDownload />} label={"git pull"} disabled={loadingpull} />}
-                    <NavLink onClick={onBuild} leftSection={<MdBuild />} label={"build"} disabled={loadingBuild} />
-                    <NavLink onClick={onPm2Status} leftSection={<MdNote />} label={"pm2 status"} disabled={loadingBuild} />
+                    {isLocal && <NavLink onClick={onPush} leftSection={<MdPushPin />} label={"git push"} disabled={loading} />}
+                    {!isLocal && <NavLink onClick={onPull} leftSection={<MdDownload />} label={"git pull"} disabled={loading} />}
+                    <NavLink onClick={onBuild} leftSection={<MdBuild />} label={"build"} disabled={loading} />
+                    <NavLink onClick={onPm2Status} leftSection={<MdNote />} label={"pm2 status"} disabled={loading} />
                 </NavLink>
 
             </Grid.Col>
@@ -127,7 +137,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                             {logText}
                         </pre>
                     </Code>
-                    {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={10}   >
+                    {loading && <Center pos={"absolute"} left={0} right={0} top={10}   >
                         <Loader />
                     </Center>}
                 </Stack>
