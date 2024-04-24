@@ -1,1 +1,4 @@
-yarn install && npx prisma db push && yarn dev --port 3333 & pid=$! && sleep 10 && kill $pid && yarn build
+yarn install
+npx prisma db push
+timeout 10 yarn dev
+yarn build
