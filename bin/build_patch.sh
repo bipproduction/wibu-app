@@ -1,0 +1,1 @@
+timeout 5s yarn dev --port 3335

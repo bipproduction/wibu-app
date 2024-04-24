@@ -1,5 +1,6 @@
-if([ $# -eq 0 ]); then
-    echo "Usage: $0 <name>"
-    exit 1
-fi
-echo "apa kabar $1"
+echo "start"
+yarn dev --port 3335 &
+pid=$!
+sleep 5
+kill-port 3335
+kill -SIGINT $pid
