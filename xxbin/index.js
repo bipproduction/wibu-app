@@ -48,8 +48,7 @@ async function updatdeVersion() {
     const version = semver.inc(pkg.version, 'patch')
     const newPkg = _.cloneDeep(pkg)
     newPkg.version = version
-
     await fs.promises.writeFile(path.join(__dirname, './../package.json'), JSON.stringify(newPkg, null, 2))
-
     console.log(`${pkg.version} =>  ${newPkg.version}`.cyan)
+    
 }
