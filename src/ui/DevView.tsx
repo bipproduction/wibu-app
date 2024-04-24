@@ -111,7 +111,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
             </Grid.Col>
             <Grid.Col p={"md"} span={9} pos={"relative"}>
-                {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={0} bottom={0}  >
+                {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={0}   >
                     <Loader />
                 </Center>}
                 <Stack bg={"black"} p={"md"} h={"100vh"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
