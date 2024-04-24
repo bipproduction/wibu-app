@@ -6,7 +6,7 @@ import { spawn } from 'child_process'
 export async function GET(req: Request) {
     try {
         await new Promise<void>((resolve, reject) => {
-            const child = spawn('/bin/sh', ['-c', 'yarn dev --port 3335']);
+            const child = spawn('/bin/sh', ['-c', 'yarn start --port 3335']);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 console.log(data.toString())
