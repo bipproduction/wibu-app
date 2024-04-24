@@ -137,7 +137,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                             {logText}
                         </pre>
                     </Code>
-                    {loading && <Box pos={"absolute"} left={0} right={10} top={10}   >
+                    {loading && <Box pos={"absolute"} right={10} top={10}   >
                         <Loader />
                     </Box>}
                 </Stack>
