@@ -19,6 +19,7 @@ export default function Server() {
                     <Table.Tr>
                         <Table.Th>no</Table.Th>
                         <Table.Th>name</Table.Th>
+                        <Table.Th>text</Table.Th>
                     </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>
@@ -26,7 +27,8 @@ export default function Server() {
                         listServer?.map((server, index) => {
                             return <Table.Tr key={index}>
                                 <Table.Td>{index + 1}</Table.Td>
-                                <Table.Td>{server}</Table.Td>
+                                <Table.Td>{server.name}</Table.Td>
+                                <Table.Td>{server.text}</Table.Td>
                             </Table.Tr>
 
                         })
