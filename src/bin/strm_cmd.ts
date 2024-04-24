@@ -1,8 +1,8 @@
 import { spawn } from 'child_process'
-export function strmCmd({ cmd }: { cmd: string }) {
+export function strm_cmd({ path }: { path: string }) {
     const stream = new ReadableStream({
         start(controller) {
-            const child = spawn('/bin/sh', [cmd]);
+            const child = spawn('/bin/sh', [path]);
             // Handle stdout data from the child process
             child.stdout.on('data', (data) => {
                 // Push data into the stream

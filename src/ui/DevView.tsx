@@ -1,8 +1,9 @@
 'use client'
+import { strmFetch } from "@/bin/strm_fetch";
 import appASetting from "@/util/app_setting";
 import { Box, Button, Center, Code, Flex, Grid, Loader, LoadingOverlay, NavLink, SimpleGrid, Stack, Text, Textarea, Title } from "@mantine/core";
 import { useState } from "react";
-import { MdBuild, MdDownload, MdGite, MdPushPin } from "react-icons/md";
+import { MdBuild, MdDownload, MdGite, MdNote, MdPushPin } from "react-icons/md";
 
 export default function DevView({ isLocal }: { isLocal: boolean }) {
     const [loadingPush, setLoadingPush] = useState(false)
@@ -94,6 +95,10 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
 
     }
 
+    const onPm2Status = async () => {
+        strmFetch({ path: "/api/dev/pm2/status", setlogText })
+    }
+
     return <Stack>
         <Grid>
             <Grid.Col span={3}>
@@ -101,6 +106,7 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                     {isLocal && <NavLink onClick={onPush} leftSection={<MdPushPin />} label={"git push"} disabled={loadingPush} />}
                     {!isLocal && <NavLink onClick={onPull} leftSection={<MdDownload />} label={"git pull"} disabled={loadingpull} />}
                     <NavLink onClick={onBuild} leftSection={<MdBuild />} label={"build"} disabled={loadingBuild} />
+                    <NavLink onClick={onPm2Status} leftSection={<MdNote />} label={"pm2 status"} disabled={loadingBuild} />
                 </NavLink>
 
             </Grid.Col>
@@ -108,14 +114,15 @@ export default function DevView({ isLocal }: { isLocal: boolean }) {
                 {(loadingBuild || loadingpull || loadingPush) && <Center pos={"absolute"} left={0} right={0} top={0} bottom={0}  >
                     <Loader />
                 </Center>}
-                <Stack bg={"black"} p={"md"} h={"100%"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
-                    <pre >
-                        <Text style={{
-                            wordWrap: "break-word",
-                            whiteSpace: "pre-wrap",
-                            textWrap: "wrap",
-                        }}>{logText}</Text>
-                    </pre>
+                <Stack bg={"black"} p={"md"} h={"100vh"} w={"100%"} style={{ overflow: "auto" }} c={"white"} mah={"100vh"}>
+                    <Code
+                        w={"100%"}
+                        bg={"black"}
+                        c={"green"}>
+                        <pre>
+                            {logText}
+                        </pre>
+                    </Code>
                 </Stack>
             </Grid.Col>
         </Grid>

@@ -1,12 +1,9 @@
-import { strmCmd } from '@/bin/strm_cmd'
-import { spawn } from 'child_process'
+import { header_strm } from "@/bin/header_stream"
+import { strm_cmd } from "@/bin/strm_cmd"
 
 export async function GET() {
-    const strm = strmCmd({ cmd: 'pm2 status' })
+    const strm = strm_cmd({ path: "bin/pm2_status.sh" })
     return new Response(strm, {
-        headers: {
-            'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache',
-        },
+        headers: header_strm,
     })
 }
