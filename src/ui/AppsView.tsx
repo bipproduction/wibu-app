@@ -8,9 +8,29 @@ import { useState } from 'react'
 
 export default function AppsView() {
     const [listApp, setListApp] = useState<MODEL_PM2[]>([])
+    const [loadingPm2, setLoadingPm2] = useState(false)
+
     useShallowEffect(() => {
-        fetch(`/api/app/list-app`).then(res => res.json()).then(setListApp)
+        loadData()
     }, [])
+
+    const loadData = async () => {
+        await fetch(`/api/app/list-app`).then(res => res.json()).then(setListApp)
+    }
+
+    const restartApp = async (app: string) => {
+        setLoadingPm2(true)
+        await fetch(`/api/dev/pm2/restart?app=${app}`)
+        await loadData()
+        setLoadingPm2(false)
+    }
+
+    const stopApp = async (app: string) => {
+        setLoadingPm2(true)
+        await fetch(`/api/dev/pm2/stop?app=${app}`)
+        await loadData()
+        setLoadingPm2(false)
+    }
 
     return <Stack gap={0} p={"md"} >
         <Title>Apps</Title>
@@ -31,20 +51,20 @@ export default function AppsView() {
                 <Table.Tbody>
                     {
                         listApp.map((app, index) => {
-                            return <Table.Tr key={index} bg={app.pm2_env.status === "online" ? "green" : "red"}>
+                            return <Table.Tr key={index} >
                                 <Table.Td>{index + 1}</Table.Td>
                                 <Table.Td>{app.name}</Table.Td>
                                 <Table.Td>{app.pid}</Table.Td>
-                                <Table.Td >{app.pm2_env.status}</Table.Td>
+                                <Table.Td bg={app.pm2_env.status === "online" ? "green" : "red"} >{app.pm2_env.status}</Table.Td>
                                 <Table.Td >{app.monit.cpu}</Table.Td>
                                 <Table.Td>{app.monit.memory}</Table.Td>
                                 <Table.Td>{moment(app.pm2_env.created_at).format('YYYY-MM-DD HH:mm:ss')}</Table.Td>
                                 <Table.Td>
                                     <Flex gap={"md"}>
-                                        <ActionIcon>
+                                        <ActionIcon disabled={loadingPm2} onClick={() => restartApp(app.name)}>
                                             <MdRestore />
                                         </ActionIcon>
-                                        <ActionIcon>
+                                        <ActionIcon disabled={loadingPm2} onClick={() => stopApp(app.name)}>
                                             <MdStop />
                                         </ActionIcon>
                                     </Flex>
